@@ -1,6 +1,6 @@
 FROM project8/cvmfs-dependencies-py:latest
 
-ENV MORPHOBRANCH=release/1.2.3
+ENV MORPHOBRANCH=release/1.2.5
 
 RUN git clone https://github.com/project8/morpho.git /cvmfs/hep.pnnl.gov/project8/morpho/${MORPHOBRANCH} --recursive -b ${MORPHOBRANCH} --depth 1 && \
     rm -f /cvmfs/hep.pnnl.gov/project8/morpho/latest && \
