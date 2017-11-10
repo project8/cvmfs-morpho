@@ -1,11 +1,7 @@
 #!/bin/bash
 
-
 export P8MORPHODIR=/cvmfs/hep.pnnl.gov/project8/morpho/${MORPHOBRANCH}
-
-source /cvmfs/hep.pnnl.gov/project8/dependencies-py/latest/setup.sh
 source ${P8MORPHODIR}/setup.sh
-
 
 echo "Environment variables after installing python:"
 env
@@ -26,8 +22,8 @@ echo "PYTHONPATH: $PYTHONPATH"
 echo "Library search path:"
 echo `ldconfig -v 2>/dev/null | grep -v ^$'\t'`
 
-cd ${P8MORPHODIR}
-pip install .[all]
+cd ${P8MORPHOBASEDIR}
+python /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/get-pip.py --prefix=${P8MORPHOBASEDIR} .[all]
 
 # Testing if morpho is working
 cd examples
