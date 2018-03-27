@@ -1,6 +1,6 @@
 # define what dependencies and what version of morpho to look for
 export P8DEPMORPHOBUILD=build-2017-10-18
-export MORPHOBRANCH=v1.2.5
+export MORPHOBRANCH=v1.4.1
 
 # source dependencies
 source /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/setup.sh 

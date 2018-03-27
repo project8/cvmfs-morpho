@@ -1,6 +1,6 @@
 FROM project8/cvmfs-dependencies-morpho:build-2017-10-18
 
-ENV MORPHOBRANCH=v1.2.5
+ENV MORPHOBRANCH=v1.4.1
 
 RUN git clone https://github.com/project8/morpho.git /cvmfs/hep.pnnl.gov/project8/morpho/${MORPHOBRANCH} --recursive -b ${MORPHOBRANCH}
 
