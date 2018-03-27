@@ -11,7 +11,7 @@ When updating the morpho build on GitHub, please make sure that both `run-cvmfs-
 
 This repository provides the installation of morpho on the CVMFS system used on the PNNL HEP cluster.
 
-It's based on the CVMFS-dependencies-py image (https://hub.docker.com/r/project8/cvmfs-dependencies-py).
+It's based on the CVMFS-dependencies-morpho image (https://hub.docker.com/r/project8/cvmfs-dependencies-morpho).
 
 Project 8 software is installed in the `/cvmfs/hep.pnnl.gov/project8` directory.  From there, installed python packages go in the `morpho` subdirectory.  For any images based on this image, their software should go in their own directories to avoid issues with directory names that change as builds are updated.  For example:
 
@@ -28,9 +28,9 @@ Project 8 software is installed in the `/cvmfs/hep.pnnl.gov/project8` directory.
    |
    +- morpho
    |     |
-   |     +- latest --> v1.2.5
+   |     +- latest --> v1.4.1
    |     |
-   |     +- v1.2.5
+   |     +- v1.4.1
    |           |
    |           +- AUTHORS, bin, Dockerfile, ... (morpho source code)
    |           |
@@ -46,9 +46,9 @@ Project 8 software is installed in the `/cvmfs/hep.pnnl.gov/project8` directory.
 1. Set the branch to `release/[version]`:
     1. Uncomment the `ENV MORPHOBRANCH=release/[version]` line
     1. Comment out the line that uses a tag, `ENV MORPHOBRANCH=v[version]`
-1. If using a new version of the `cvmfs-dependencies-py` base image, update that in the `FROM` line in Dockerfile
+1. If using a new version of the `cvmfs-dependencies-morpho` base image, update that in the `FROM` line in Dockerfile
 1. Build the container locally
-1. If the build works, go ahead with the Morpho release, but don't push these changes to Ladybug:master
+1. If the build works, go ahead with the Morpho release, but don't push these changes to cvmfs-morpho:master.
 
 ## Updating Morpho with a new tagged release
 
@@ -56,9 +56,9 @@ Project 8 software is installed in the `/cvmfs/hep.pnnl.gov/project8` directory.
 1. Set the branch to the tag name, `v[version]`:
     1. Comment out the `ENV MORPHOBRANCH=v[version]` line
     1. Uncomment the line that uses a tag, `ENV MORPHOBRANCH=v[version]`
-1. If using a new version of the `cvmfs-dependencies-py` base image, update that in the `FROM` line in Dockerfile
+1. If using a new version of the `cvmfs-dependencies-morpho` base image, update that in the `FROM` line in Dockerfile
 1. Build the container locally
-1. If the build works, push these changes to Ladybug:master
+1. If the build works, push these changes to cvmfs-morpho:master
 1. On the Docker Hub page for the `project8/cvmfs-morpho` image, go to Build Settings
 1. Trigger a rebuild of both containers (`latest` and same-as-tag)
 1. Make sure that the Docker Hub build works
